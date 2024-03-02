@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/locations', [LocationController::class, 'index']);
 Route::get('/rooms', [RoomController::class, 'index']);
+Route::get('/room-detail', [RoomController::class, 'detail']);

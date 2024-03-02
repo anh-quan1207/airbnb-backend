@@ -21,4 +21,12 @@ class RoomController extends Controller
 
         return response()->json($rooms);
     }
+
+    public function detail(Request $request)
+    {
+        $roomId = $request->query('roomId');
+        $room_detail = $this->roomService->getRoomDetail($roomId);
+
+        return response()->json($room_detail);
+    }
 }

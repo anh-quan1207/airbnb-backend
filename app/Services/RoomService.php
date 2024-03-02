@@ -17,4 +17,9 @@ class RoomService
     {
         return $this->roomRepository->showByLocationId($locationId);
     }
+
+    public function getRoomDetail($roomId)
+    {
+        return $this->roomRepository->getRoomDetail($roomId);
+    }
 }

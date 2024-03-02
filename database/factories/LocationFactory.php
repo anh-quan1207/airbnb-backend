@@ -18,8 +18,8 @@ class LocationFactory extends Factory
     public function definition()
     {
         $locations = [
-            'Hà Nội', 'Hồ Chí Minh', 'Đà Nẵng', 'Hạ Long', 'Huế',
-            'Sapa', 'Hội An', 'Phong Nha', 'Nha Trang', 'Đà Lạt',
+            'Chùa Bái Đính', 'Bà Nà Hills', 'Sầm Sơn', 'Hạ Long', 'Cửa Lò',
+            'Sapa', 'Hội An', 'Phong Nha', 'Biển Nha Trang', 'Phú Quốc',
         ];
         $province = Province::inRandomOrder()->first();
 
