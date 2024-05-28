@@ -17,6 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $table = 'users';
+
     protected $fillable = [
         'user_name', 'email', 'phone', 'address', 'gender', 'birthday', 'hash_password',
     ];
@@ -36,8 +39,13 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'password' => 'hashed',
+//        'password' => 'hashed',
     ];
+
+    public function getAuthPassword()
+    {
+        return $this->hash_password;
+    }
 
     public function ticket()
     {
