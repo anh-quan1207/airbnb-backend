@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,7 @@ Route::get('/rooms', [RoomController::class, 'index']);
 Route::get('/room-detail', [RoomController::class, 'detail']);
 
 // User Register
-Route::post('/users', [UserController::class, 'store']);
+Route::post('/user', [UserController::class, 'store']);
+
+//Booking
+Route::post('/ticket', [TicketController::class, 'store']);

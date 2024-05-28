@@ -42,7 +42,7 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'))) {
+        if (!Auth::attempt($this->only('email', 'password'))) {
             RateLimiter::hit($this->throttleKey());
 
             return response()->json([
@@ -54,9 +54,13 @@ class LoginRequest extends FormRequest
 
         $user = Auth::user();
 
+        // Tạo token
+        $token = $user->createToken('auth_token')->plainTextToken;
+
         return response()->json([
             'message' => 'Authentication successful',
             'user' => $user,
+            'token' => $token,
         ], 200);
     }
 
