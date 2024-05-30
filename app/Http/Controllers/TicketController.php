@@ -29,4 +29,18 @@ class TicketController extends Controller
             return response()->json(['error' => 'Internal Server Error'], 500);
         }
     }
+
+    public function getTicketsByUserId($userId)
+    {
+        $tickets = $this->ticketService->getTicketsByUserId($userId);
+
+        return response()->json($tickets);
+    }
+
+    public function getTicketsByRoomId($roomId)
+    {
+        $tickets = $this->ticketService->getTicketsByRoomId($roomId);
+
+        return response()->json($tickets);
+    }
 }

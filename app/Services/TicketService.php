@@ -17,4 +17,13 @@ class TicketService
     {
         return $this->ticketRepository->create($data);
     }
+
+    public function getTicketsByUserId($userId)
+    {
+        return $this->ticketRepository->getByUserId($userId);
+    }
+
+    public function getTicketsByRoomId($roomId) {
+        return $this->ticketRepository->getByRoomId($roomId);
+    }
 }

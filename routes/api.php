@@ -32,3 +32,6 @@ Route::post('/user', [UserController::class, 'store']);
 
 //Booking
 Route::post('/ticket', [TicketController::class, 'store']);
+Route::get('/tickets/user/{userId}', [TicketController::class, 'getTicketsByUserId']);
+Route::get('/tickets/room/{roomId}', [TicketController::class, 'getTicketsByRoomId']);
+
