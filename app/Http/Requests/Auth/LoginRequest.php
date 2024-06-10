@@ -54,7 +54,6 @@ class LoginRequest extends FormRequest
 
         $user = Auth::user();
 
-        // Tạo token
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([

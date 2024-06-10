@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\User;
 
-use App\Repositories\RoomRepository;
+use App\Repositories\User\RoomRepository;
 
 class RoomService
 {

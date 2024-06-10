@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\User;
 
-use App\Repositories\LocationRepository;
+use App\Repositories\User\LocationRepository;
 
 class LocationService
 {

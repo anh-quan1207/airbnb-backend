@@ -2,10 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LocationController;
-use App\Http\Controllers\RoomController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\TicketController;
+use App\Http\Controllers\User\LocationController as UserLocationController;
+use App\Http\Controllers\User\RoomController as UserRoomController;
+use App\Http\Controllers\User\TicketController as UserTicketController;
+use App\Http\Controllers\User\UserController as UserUserController;
+use App\Http\Controllers\Admin\TicketController as AdminTicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,16 +23,18 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Location
-Route::get('/locations', [LocationController::class, 'index']);
-Route::get('/rooms', [RoomController::class, 'index']);
-Route::get('/room-detail', [RoomController::class, 'detail']);
+/////////// USER
+Route::get('/locations', [UserLocationController::class, 'index']);
+Route::get('/rooms', [UserRoomController::class, 'index']);
+Route::get('/room-detail', [UserRoomController::class, 'detail']);
 
-// User Register
-Route::post('/user', [UserController::class, 'store']);
+Route::post('/user', [UserUserController::class, 'store']);
 
-//Booking
-Route::post('/ticket', [TicketController::class, 'store']);
-Route::get('/tickets/user/{userId}', [TicketController::class, 'getTicketsByUserId']);
-Route::get('/tickets/room/{roomId}', [TicketController::class, 'getTicketsByRoomId']);
+Route::post('/ticket', [UserTicketController::class, 'store']);
+Route::get('/tickets/user/{userId}', [UserTicketController::class, 'getTicketsByUserId']);
+Route::get('/tickets/room/{roomId}', [UserTicketController::class, 'getTicketsByRoomId']);
 
+
+
+/////////// ADMIN
+Route::get('/admin/tickets', [AdminTicketController::class, 'getAllTickets']);

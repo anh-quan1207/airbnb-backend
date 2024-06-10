@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\User;
 
-use App\Repositories\UserRepository;
+use App\Repositories\User\UserRepository;
 use Illuminate\Support\Facades\Hash;
 
 class UserService

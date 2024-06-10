@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
+use App\Services\User\LocationService;
 use Illuminate\Http\Request;
-use App\Services\LocationService;
 
 class LocationController extends Controller
 {

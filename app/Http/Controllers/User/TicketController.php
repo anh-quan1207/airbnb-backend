@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
-use App\Services\TicketService;
-use App\Http\Requests\TicketRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\User\TicketRequest;
+use App\Services\User\TicketService;
 
 class TicketController extends Controller
 {

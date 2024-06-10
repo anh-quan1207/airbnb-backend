@@ -1,26 +1,21 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Admin;
 
 use App\Models\Ticket;
 
 class TicketRepository
 {
-    public function create($data)
+    public function getAllTickets()
     {
-        return Ticket::create($data);
-    }
-
-    public function getByUserId($userId)
-    {
-        $tickets = Ticket::where('user_id', $userId)
-            ->join('rooms', 'tickets.room_id', '=', 'rooms.id')
+        $tickets = Ticket::join('rooms', 'tickets.room_id', '=', 'rooms.id')
             ->join('users', 'tickets.user_id', '=', 'users.id')
             ->join('locations', 'rooms.location_id', '=', 'locations.id')
             ->select(
                 'tickets.id as ticket_id',
                 'tickets.check_in',
                 'tickets.check_out',
+                'tickets.created_at',
                 'users.id as user_id',
                 'users.user_name',
                 'users.email',
@@ -61,6 +56,7 @@ class TicketRepository
                     'id' => $ticket->ticket_id,
                     'check_in' => $ticket->check_in,
                     'check_out' => $ticket->check_out,
+                    'created_at' => $ticket->created_at,
                 ],
                 'room' => [
                     'id' => $ticket->room_id,
@@ -80,11 +76,5 @@ class TicketRepository
         }
 
         return $result;
-    }
-
-
-    public function getByRoomId($roomId)
-    {
-        return Ticket::where('room_id', $roomId)->select('id', 'check_in', 'check_out')->get();
     }
 }
